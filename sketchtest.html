@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: space-around;
+			height: 100vh; /* Ensure the body takes up the full viewport height */
+			margin: 0; /* Remove default margin */
+		}
+
+		.square {
+			box-sizing: border-box; /* Include padding and border in the element's total width and height */
+			padding: 10px; /* Adjust padding as needed */
+			background-color: lightblue;
+			margin: 0px; /* Adjust margin as needed */
+			text-align: center;
+			border: 2px solid green;
+			transition: background-color 0.5s; /* Add transition for smooth color change */
+		}
+	</style>
+</head>
+<body>
+	<script>
+		// Create 16 square elements
+		var width = 5;
+		var n = width * width;
+		var container = document.createElement('div');
+		container.style.width = '100%';
+		container.style.display = 'flex';
+		container.style.flexWrap = 'wrap';
+		container.style.justifyContent = 'space-around';
+		container.style.alignItems = 'space-around';
+
+		for (var i = 0; i < n; i++) {
+			var newSquare = document.createElement('div');
+			newSquare.className = 'square';
+			newSquare.textContent = i + 1;
+
+			// Set the width of each square
+			newSquare.style.width = (100 / width) + '%';
+
+			// Add event listeners for hover and mouseout
+			newSquare.addEventListener('mouseenter', function() {
+				var square = this;
+				var interval = setInterval(function() {
+					var currentColor = getComputedStyle(square).backgroundColor;
+					var currentOpacity = parseFloat(currentColor.slice(5, -1).split(',')[3]);
+					if (currentOpacity < 1) {
+						square.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+					} else {
+						clearInterval(interval);
+					}
+				}, 100);
+			});
+
+			newSquare.addEventListener('mouseleave', function() {
+				this.style.backgroundColor = 'lightblue';
+			});
+
+			// Append the new square to the container
+			container.appendChild(newSquare);
+		}
+
+		// Append the container to the body
+		document.body.appendChild(container);
+	</script>
+</body>
+</html>

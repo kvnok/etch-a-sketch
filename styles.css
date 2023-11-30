@@ -1,0 +1,16 @@
+body {
+	display: flex;
+	/* flex-direction: column; */
+	flex-wrap: wrap;
+	margin: 0;
+	justify-content: space-around;
+	align-items: space-around;
+	height: 100vh;
+}
+
+div {
+	border: 10px solid green;
+	/* flex: 1 1 25%; */
+	background-color: red;
+	box-sizing: border-box;
+}
