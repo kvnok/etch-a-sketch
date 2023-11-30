@@ -1,16 +1,50 @@
 body {
-	display: flex;
-	/* flex-direction: column; */
-	flex-wrap: wrap;
 	margin: 0;
-	justify-content: space-around;
-	align-items: space-around;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	height: 100vh;
+	background-color: #f0f0f0;
 }
 
-div {
-	border: 10px solid green;
-	/* flex: 1 1 25%; */
-	background-color: red;
-	box-sizing: border-box;
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	height: 100vh;
+	width: 100vw;
+}
+
+.flex-item {
+	--myvar: 4;
+	flex: 0 0 calc(100% / var(--myvar));
+	margin: 0px;
+	background-color: white;
+	transition: background-color 0.3s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.flex-item.active {
+	background-color: black;
+	color: white;
+}
+
+button {
+	margin-top: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#options {
+	display: flex;
+	flex-direction: row;
+}
+
+#options button {
+	margin-left: 20vw;
+	margin-right: 20vw;
 }

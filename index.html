@@ -4,25 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
-	<title>etch-a-sketch</title>
 	<script src="script.js"></script>
 </head>
 <body>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<!-- <div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div> -->
+	<div id="options">
+		<button onclick="createFlexItemsPrompt()">Choose draw grid precision (max 100)</button>
+		<button onclick="resetColors()">Reset canvas</button>
+	</div>
+	<div id="flex-container" class="flex-container"></div>
 </body>
 </html>
